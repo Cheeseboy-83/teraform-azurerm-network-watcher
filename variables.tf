@@ -1,0 +1,20 @@
+variable "name" {
+  description = "The name of the network watcher."
+  type        = string
+}
+
+variable "resource_group_name" {
+  description = "The name of the resource group in which to create the network watcher."
+  type        = string
+}
+
+variable "location" {
+  description = "The location/region where the network watcher is created."
+  type        = string
+}
+
+variable "tags" {
+  description = "A mapping of tags to assign to the resource."
+  type        = map(string)
+  default     = {}
+}
