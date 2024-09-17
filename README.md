@@ -24,7 +24,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_name"></a> [name](#input\_name) | Network Watcher Name | `string` | n/a | yes |
-| <a name="input_resource_group_name></a> [resource_group_name](#input\_resource_group_name) | Resource Group Name | `string` | n/a | yes |
+| <a name="input_resource_group_name"></a> [resource_group_name](#input\_resource_group_name) | Resource Group Name | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | The Azure Region where the Resource Group should exist | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags | `list` | n/a | yes |
 
