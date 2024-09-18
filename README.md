@@ -56,7 +56,7 @@ module "network-watcher" {
   for_each = { for key, value in var.resource_groups : key => value }
 
   name                = each.value.name
-  resource_group_name = each.value.resource_group_name
+  resource_group_name = module.resource_group[each.value.rg_key].name
   location            = each.value.location
   tags                = merge(var.required_tags, each.value.tags)
 }
@@ -67,10 +67,10 @@ You must also include the following variable declaration in your `variables.tf`:
 ```
 variable "network_watchers" {
   type = map(object({
-    name                = string
-    resource_group_name = string
-    location            = string
-    tags                = optional(map(string))
+    name     = string
+    rg_key   = string
+    location = string
+    tags     = optional(map(string))
   }))
   description = "Resource groups in the deployment"
 }
@@ -80,9 +80,9 @@ This will allow the module to consume the variable properly. You must also defin
 ```
 network_watchers = {
   network_watcher_0 = {
-    name                = "nw_0_name"
-    resource_group_name = "nw_0_rg_name"
-    location            = "nw_0_location"
+    name     = "nw_0_name"
+    rg_key   = "nw_0_rg_key"
+    location = "nw_0_location"
     tags = {
       key0 = "value0"
       key1 = "value1"
